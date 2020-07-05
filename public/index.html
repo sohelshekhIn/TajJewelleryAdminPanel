@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Taj Jewellery</title>
+    <link
+      rel="shortcut icon"
+      href="administrator/assets/images/logo.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-analytics.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="main">
+        <h1 id="heading">Admin Login</h1>
+        <div class="data">
+          <form class="admin-login">
+            <input
+              autofocus
+              type="text"
+              name="username"
+              autofocus
+              id="username"
+              placeholder="Username"
+            />
+            <input
+              accesskey="s"
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Password"
+            />
+            <div class="viewerLogin">
+              <input type="checkbox" accesskey="c" name="viewer" id="viewer" />
+              <label for="viewer">Viewer Login</label>
+            </div>
+            <a href="#" id="btn-submit" accesskey="a">Login</a>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+      integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

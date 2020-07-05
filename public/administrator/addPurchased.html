@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <title>Admin Taj Jewellery</title>
+    <link
+      rel="shortcut icon"
+      href="administrator/assets/images/logo.png"
+      type="image/x-icon"
+    />
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="assets/css/style-starter.css" />
+
+    <!-- google fonts -->
+    <link
+      href="//fonts.googleapis.com/css?family=Nunito:300,400,600,700,800,900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-analytics.js"></script>
+  </head>
+
+  <body class="sidebar-menu-collapsed">
+    <div class="se-pre-con"></div>
+    <section>
+      <!-- sidebar menu start -->
+      <div class="sidebar-menu sticky-sidebar-menu">
+        <!-- logo start -->
+        <div class="logo">
+          <h1><a href="index.html">Collective</a></h1>
+        </div>
+        <div class="logo-icon text-center">
+          <a href="index.html" title="logo"
+            ><img src="assets/images/logo.png" alt="logo-icon" />
+          </a>
+        </div>
+        <!-- //logo end -->
+
+        <div class="sidebar-menu-inner">
+          <!-- sidebar nav start -->
+          <ul class="nav nav-pills nav-stacked custom-nav">
+            <li>
+              <a href="index.html"
+                ><i class="fa fa-tachometer"></i><span> Dashboard</span></a
+              >
+            </li>
+            <li>
+              <a href="settings.html"
+                ><i class="fa fa-cogs"></i> <span>Settings</span></a
+              >
+            </li>
+            <li>
+              <a href="customer-data.html"
+                ><i class="fa fa-table"></i> <span>Customer Data</span></a
+              >
+            </li>
+            <li>
+              <a href="sold-data.html"
+                ><i class="fa fa-th"></i> <span>Sold Data</span></a
+              >
+            </li>
+            <li>
+              <a href="purchased-data.html"
+                ><i class="fa fa-file-text"></i> <span>Purchased</span></a
+              >
+            </li>
+          </ul>
+          <!-- //sidebar nav end -->
+          <!-- toggle button start -->
+          <a class="toggle-btn">
+            <i class="fa fa-angle-double-left menu-collapsed__left"
+              ><span>Collapse Sidebar</span></i
+            >
+            <i class="fa fa-angle-double-right menu-collapsed__right"></i>
+          </a>
+          <!-- //toggle button end -->
+        </div>
+      </div>
+      <!-- //sidebar menu end -->
+      <!-- header-starts -->
+      <div class="header sticky-header">
+        <!-- notification menu start -->
+        <div class="menu-right">
+          <div class="navbar user-panel-top">
+            <div class="search-box">
+              <form action="#search-results.html" method="get">
+                <input
+                  class="search-input bg-light"
+                  placeholder="Search Here..."
+                  type="search"
+                  id="search"
+                />
+                <button class="search-submit" value="">
+                  <span class="fa fa-search"></span>
+                </button>
+              </form>
+            </div>
+            <div class="logout btn btn-light ml-3"><p>Logout</p></div>
+          </div>
+        </div>
+        <!--notification menu end -->
+      </div>
+      <!-- //header-ends -->
+      <!-- main content start -->
+      <div class="main-content">
+        <!-- content -->
+        <div class="container-fluid content-top-gap">
+          <!-- breadcrumbs -->
+          <nav aria-label="breadcrumb" class="mb-4">
+            <ol class="breadcrumb my-breadcrumb">
+              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">
+                Add Purchased
+              </li>
+            </ol>
+          </nav>
+          <!-- //breadcrumbs -->
+          <!-- ====================== Main Content Start ============================= -->
+          <div class="container card">
+            <div class="main container-fluid card-body">
+              <h1 class="heading card-heading pt-md-3">Purchased</h1>
+              <form class="form container-fluid pt-3">
+                <div class="form-group">
+                  <input
+                    autofocus
+                    type="text"
+                    class="form-control"
+                    id="name"
+                    placeholder="Seller Name"
+                  />
+                </div>
+                <div class="form-group">
+                  <input
+                    type="text"
+                    placeholder="Address"
+                    id="address"
+                    class="form-control"
+                  />
+                </div>
+                <div class="form-group">
+                  <input
+                    type="number"
+                    name="Number"
+                    id="number"
+                    placeholder="Phone number"
+                    class="form-control"
+                    accesskey="p"
+                  />
+                </div>
+                <div class="page-break"></div>
+                <h4 class="heading">Product</h4>
+                <div class="card container-fluid" id="card-container-fluid">
+                  <div class="form-group form-row mt-3">
+                    <div class="col-6">
+                      <input
+                        type="text"
+                        id="item-1"
+                        class="form-control form-inline"
+                        placeholder="Item"
+                      />
+                    </div>
+                    <div class="col-6">
+                      <input
+                        type="number"
+                        id="quantity-1"
+                        class="form-control form-inline"
+                        placeholder="Quantity"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <ul class="pagination d-flex justify-content-end">
+                    <li class="page-item">
+                      <a
+                        class="page-link mt-3"
+                        id="addMore"
+                        accesskey="a"
+                        href="#"
+                        >Add</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+                <div class="totalPriceDiv d-flex justify-content-end">
+                  <div class="form-group">
+                    <input
+                      type="number"
+                      placeholder="Total Price"
+                      id="totalPrice"
+                      required
+                      class="form-control"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="form-group d-inline-block d-flex justify-content-end pt-5"
+                >
+                  <button
+                    class="btn btn-outline-dark d-flex justify-content-around align-self-center"
+                    id="save-purchase"
+                    accesskey="s"
+                  >
+                    Save Data
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <!-- ============================== End Main Content ========================================= -->
+        </div>
+      </div>
+    </section>
+    <!--footer section start-->
+    <footer class="dashboard">
+      <p>
+        &copy 2020 All Rights Reserved | Design by
+        <a
+          href="http://bit.ly/soheleditz_in"
+          target="_blank"
+          class="text-primary"
+          >Sohel Shekh</a
+        >
+      </p>
+    </footer>
+    <!--footer section end-->
+    <!-- move top -->
+    <button
+      onclick="topFunction()"
+      id="movetop"
+      class="bg-primary"
+      title="Go to top"
+    >
+      <span class="fa fa-angle-up"></span>
+    </button>
+    <script>
+      // When the user scrolls down 20px from the top of the document, show the button
+      window.onscroll = function () {
+        scrollFunction();
+      };
+
+      function scrollFunction() {
+        if (
+          document.body.scrollTop > 20 ||
+          document.documentElement.scrollTop > 20
+        ) {
+          document.getElementById("movetop").style.display = "block";
+        } else {
+          document.getElementById("movetop").style.display = "none";
+        }
+      }
+
+      // When the user clicks on the button, scroll to the top of the document
+      function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+      }
+    </script>
+    <!-- /move top -->
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+      integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="assets/js/jquery-3.3.1.min.js"></script>
+    <script src="assets/js/jquery-1.10.2.min.js"></script>
+
+    
+    <script src="assets/js/jquery.nicescroll.js"></script>
+    <script src="assets/js/scripts.js"></script>
+
+    <!-- close script -->
+    <script>
+      var closebtns = document.getElementsByClassName("close-grid");
+      var i;
+
+      for (i = 0; i < closebtns.length; i++) {
+        closebtns[i].addEventListener("click", function () {
+          this.parentElement.style.display = "none";
+        });
+      }
+    </script>
+    <!-- //close script -->
+
+    <!-- disable body scroll when navbar is in active -->
+    <script>
+      $(function () {
+        $(".sidebar-menu-collapsed").click(function () {
+          $("body").toggleClass("noscroll");
+        });
+      });
+    </script>
+    <!-- disable body scroll when navbar is in active -->
+
+    <!-- loading-gif Js -->
+    <script src="assets/js/modernizr.js"></script>
+    <script>
+      $(window).load(function () {
+        // Animate loader off screen
+        $(".se-pre-con").fadeOut("slow");
+      });
+    </script>
+    <!--// loading-gif Js -->
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="assets/js/bootstrap.min.js"></script>
+
+    <!-- Page working file -->
+    <script src="assets/js/admin.home.js"></script>
+
+    <!-- Database and page management js file -->
+    <script src="assets/js/addPurchased.js"></script>
+  </body>
+</html>
